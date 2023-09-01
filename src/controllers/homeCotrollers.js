@@ -7,7 +7,7 @@ let getHomePage = async(req , res) => {
         console.log("-----------------------")
         console.log(data)
         console.log("-----------------------")
-        return res.render('homepage.ejs', {
+        return res.render('crud.ejs', {
             data: JSON.stringify(data)
         });
     } catch (e) {
@@ -59,16 +59,16 @@ let putCRUD = async(req,res)=> {
     });
 
 }
-// let deleteCRUD = async(req,res)=>{
-//     let id= req.query.id;
-//     if(id){
-//         await CRUDService.deleteUserById(id);
-//         return res.send('Delete the user succeed!')
-//     }else{
-//         return res.send('User not found')
-//     }
+ let deleteCRUD = async(req,res)=>{
+    let id= req.query.id;
+    if(id){
+        await CRUDService.deleteUserById(id);
+        return res.send('Delete the user succeed!')
+     }else{
+        return res.send('User not found')
+    }
    
-// }
+}
 
 // object: {
 //    key: ''
@@ -83,6 +83,6 @@ module.exports = {
     displayGetCRUD: displayGetCRUD,
     getEditCRUD:getEditCRUD,
     putCRUD:  putCRUD,
-    // deleteCRUD: deleteCRUD,
+    deleteCRUD: deleteCRUD,
 
 }
